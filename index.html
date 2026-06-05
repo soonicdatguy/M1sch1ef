@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>M1sch1ef // chatroom</title>
+  <meta name="description" content="M1sch1ef — a static, mischievous little chatroom." />
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/jetbrains-mono@5.0.20/400.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/jetbrains-mono@5.0.20/700.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/unbounded@5.0.13/800.css" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="bg-grain" aria-hidden="true"></div>
+  <div class="bg-scan" aria-hidden="true"></div>
+
+  <!-- nickname overlay -->
+  <div id="nickGate" class="nick-gate" data-testid="nick-gate">
+    <div class="nick-card">
+      <img src="./logo.svg" alt="M1sch1ef logo" class="nick-logo" />
+      <h1 class="nick-title">welcome to the m<span class="acc">1</span>sch<span class="acc">1</span>ef</h1>
+      <p class="nick-sub">pick a name. cause some trouble.</p>
+      <form id="nickForm" class="nick-form" autocomplete="off">
+        <input
+          id="nickInput"
+          type="text"
+          maxlength="20"
+          placeholder="your alias..."
+          required
+          data-testid="nick-input"
+        />
+        <button type="submit" data-testid="nick-submit">enter ↵</button>
+      </form>
+      <p class="nick-foot">stored locally. realtime sync via firebase.</p>
+    </div>
+  </div>
+
+  <!-- app -->
+  <div id="app" class="app" hidden data-testid="chat-app">
+    <header class="topbar">
+      <div class="brand">
+        <img src="./logo.svg" alt="" class="brand-logo" />
+        <span class="brand-name">M1sch1ef</span>
+      </div>
+      <div class="who">
+        <span class="who-dot"></span>
+        <span class="who-label">you are</span>
+        <button id="nickBtn" class="who-nick" data-testid="current-nick">…</button>
+      </div>
+    </header>
+    <div class="tabs-row">
+      <nav class="tabs" id="tabs" role="tablist" data-testid="room-tabs"></nav>
+      <button id="newDmBtn" class="new-dm" data-testid="new-dm-btn" title="start a DM">+ DM</button>
+    </div>
+    <main class="stage">
+      <section class="messages" id="messages" data-testid="messages-list"></section>
+      <form id="msgForm" class="composer" autocomplete="off" data-testid="composer">
+        <input
+          id="msgInput"
+          type="text"
+          placeholder="type something mischievous..."
+          maxlength="500"
+          data-testid="msg-input"
+        />
+        <button type="submit" data-testid="msg-send" aria-label="send">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l14-7-5 14-3-6-6-1z"/></svg>
+        </button>
+      </form>
+    </main>
+    <footer class="footbar">
+      <span>realtime sync via <code>firebase</code></span>
+      <button id="clearBtn" class="ghost" data-testid="clear-room">clear this room</button>
+    </footer>
+  </div>
+
+  <!-- Firebase SDK (compat version — no bundler needed) -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
