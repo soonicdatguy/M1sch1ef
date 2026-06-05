@@ -1,0 +1,4 @@
+Current links for the chatroom
+https://unpkg.com/m1sch1ef-chatroom@1.0.1/index.html
+https://chillguyaq-cmd.github.io/m1sch1ef-chatroom
+https://m1sch1ef-chatroom.web.app
