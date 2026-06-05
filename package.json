@@ -1,0 +1,10 @@
+{
+  "name": "m1sch1ef-chatroom",
+  "version": "1.0.0",
+  "description": "Chatroom app",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {}
+}
